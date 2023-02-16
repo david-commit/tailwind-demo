@@ -8,8 +8,19 @@ import youtube from '../images/icon-youtube.svg';
 import twitter from '../images/icon-twitter.svg';
 import pinterest from '../images/icon-pinterest.svg';
 import instagram from '../images/icon-instagram.svg';
+import hamburger from '../images/icon-hamburger.svg';
 
 function App() {
+
+  const btn = document.getElementById('menu-btn');
+  const nav = document.getElementById('menu');
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    nav.classList.toggle('flex');
+    nav.classList.toggle('hidden');
+  });
+  
   return (
     <div className='App'>
       {/* -- NAVBAR -- */}
@@ -41,8 +52,21 @@ function App() {
           >
             Get Started
           </a>
+          {/* -- hamburger -- */}
+          <button id="menu-btn" className="block hamburger md:hidden focus:outline-none">
+            <img src={hamburger} alt="" />
+          </button>
+          {/* -- Mobile Menu */}
+          <div id="menu" className="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+            <a href="#">Pricing</a>
+            <a href="#">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Community</a>
+          </div>
         </div>
       </nav>
+      {/* -- HERO -- */}
       <div className='hero'>
         <div className='container flex flex-col-reverse md:flex-row items-center mx-auto p-6 mt-10'>
           <div className='hero-txt mb-32 space-y-12 md:w-1/2'>
@@ -243,21 +267,53 @@ function App() {
             </div>
           </div>
           {/* list container */}
-          
+          <div class='flex justify-around space-x-32'>
+            <div class='flex flex-col space-y-3 text-white'>
+              <a href='#' class='hover:text-brightRed'>
+                Home
+              </a>
+              <a href='#' class='hover:text-brightRed'>
+                Pricing
+              </a>
+              <a href='#' class='hover:text-brightRed'>
+                Products
+              </a>
+              <a href='#' class='hover:text-brightRed'>
+                About
+              </a>
+            </div>
+            <div class='flex flex-col space-y-3 text-white'>
+              <a href='#' class='hover:text-brightRed'>
+                Careers
+              </a>
+              <a href='#' class='hover:text-brightRed'>
+                Community
+              </a>
+              <a href='#' class='hover:text-brightRed'>
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+          {/* -- Input Container -- */}
+          <div class='flex flex-col justify-between'>
+            <form>
+              <div class='flex space-x-3'>
+                <input
+                  type='text'
+                  class='flex-1 px-4 rounded-full focus:outline-none'
+                  placeholder='Updated in your inbox'
+                />
+                <button class='px-6 py-2 text-white rounded-full bg-brightRed hover:bg-brightRedLight focus:outline-none'>
+                  Go
+                </button>
+              </div>
+            </form>
+            <div class='hidden text-white md:block'>
+              Copyright &copy; 2022, All Rights Reserved
+            </div>
+          </div>
         </div>
       </footer>
-      Shanai Gough “Their software allows us to track, manage and collaborate on
-      our projects from anywhere. It keeps the whole team in-sync without being
-      intrusive.” Get Started Simplify how your team works today. Get Started
-      Home Pricing Products About Us Careers Community Privacy Policy Updates in
-      your inbox… Go Copyright 2020. All Rights Reserved
-      <div class='attribution'>
-        Challenge by{' '}
-        <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>
-          Frontend Mentor
-        </a>
-        . Coded by <a href='#'>Your Name Here</a>.
-      </div>
     </div>
   );
 }
